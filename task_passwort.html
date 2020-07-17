@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Page</title>
+
+    <script>
+        const userNames = [
+            "Phil",
+            "Elija",
+            "Vero",
+        ]
+
+       function enterName(){
+        const name = document.getElementById("userName").value;
+        checkUserName(name);
+       }
+
+       function checkUserName(name){
+            for (let i = 0; i < userNames.length; i++){
+                if (name == userNames[i]){
+                    alert("Willkommen " + name + ", du bist eingeloggt");
+                    return;
+                }
+            }
+            
+            alert("Username ist ungültig");
+       }
+    </script>
+    
+</head>
+<body>
+    
+    <!--<button type="button" onclick="onButtonClick()">Say Hi</button> --> 
+   
+    <label for="username">Username:</label>
+    <input type="text" id="userName" name="name"><br><br>
+    <label for="passwort">Password:</label>
+    <input type="text" id="password" name="name"><br><br>
+
+    <button type="button" onclick="enterName()">login</button>
+
+    <!-- <button type="button" onclick="onButtonClick()">Login</button> -->
+</body>
+</html>
