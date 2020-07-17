@@ -6,41 +6,48 @@
     <title>Login-Page</title>
 
     <script>
-        const userNames = [
-            "Phil",
-            "Elija",
-            "Vero",
+        const persons =[
+            {name: "Phil", password: "007"},
+            {name: "Vero", password: "008"},
+            {name: "Elija", password: "009"},
         ]
 
-       function enterName(){
+       function checkUser(){
         const name = document.getElementById("userName").value;
-        checkUserName(name);
-       }
+        const password = document.getElementById("password").value;
+        var isValid = false;
 
-       function checkUserName(name){
-            for (let i = 0; i < userNames.length; i++){
-                if (name == userNames[i]){
-                    alert("Willkommen " + name + ", du bist eingeloggt");
-                    return;
+            for (let i = 0; i < persons.length; i++){
+
+                if (name == persons[i].name){
+                    
+                    for (let j = 0; j < persons.length; j++){
+
+                        if (password == persons[i].password){
+                            isValid = true;
+                        }
+                    }
                 }
             }
-            
-            alert("Username ist ungültig");
+
+            if (isValid){
+                alert("Willkommen " + name);
+                window.location = "http://www.vol.at/";
+            } else if (!isValid) {
+                alert("Eingabe ist ungültig");
+            }      
        }
     </script>
     
 </head>
 <body>
-    
-    <!--<button type="button" onclick="onButtonClick()">Say Hi</button> --> 
    
     <label for="username">Username:</label>
     <input type="text" id="userName" name="name"><br><br>
     <label for="passwort">Password:</label>
-    <input type="text" id="password" name="name"><br><br>
+    <input type="text" id="password" name="password"><br><br>
 
-    <button type="button" onclick="enterName()">login</button>
+    <button type="button" onclick="checkUser()">login</button>
 
-    <!-- <button type="button" onclick="onButtonClick()">Login</button> -->
 </body>
 </html>
